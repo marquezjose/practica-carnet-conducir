@@ -2,6 +2,9 @@
 
 Aplicación web local simple diseñada para practicar el examen teórico de conducir, basada en las normativas vigentes.
 
+> [!WARNING]
+> **AVISO LEGAL:** Esta aplicación es un proyecto personal, de código abierto y sin fines de lucro. **NO ES OFICIAL** y no está afiliada, avalada ni patrocinada por la Municipalidad de Córdoba ni por ningún ente gubernamental. El material de estudio ("preguntero") utilizado es de dominio público, pero esta herramienta se provee "tal cual" (as is) exclusivamente para fines educativos personales. No se garantiza la exactitud absoluta de las preguntas respecto al examen real vigente. Se recomienda siempre consultar la [documentación oficial de la Municipalidad de Córdoba](https://www.cordoba.gob.ar).
+
 ## Características
 
 - **100% Local y Offline:** No requiere conexión a internet, servidor ni base de datos.
