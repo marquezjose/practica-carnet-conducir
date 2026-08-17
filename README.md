@@ -1,61 +1,111 @@
-# Práctica Examen de Conducir - Municipalidad de Córdoba
+<div align="center">
+  
+# 🚗 Simulador de Examen Teórico de Conducir
 
-Aplicación web local simple diseñada para practicar el examen teórico de conducir, basada en las normativas vigentes.
+**Municipalidad de Córdoba - Clases No Profesionales (Autos y Motos)**
+
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://es.wikipedia.org/wiki/HTML5)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://es.wikipedia.org/wiki/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)](https://pages.github.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-success.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+Una aplicación web estática, responsiva y ultrarrápida para practicar y asegurar tu éxito en el examen teórico.
+
+👉 **[¡Comenzar a practicar online ahora!](https://marquezjose.github.io/practica-carnet-conducir/)** 👈
+
+---
+
+</div>
 
 > [!WARNING]
-> **AVISO LEGAL:** Esta aplicación es un proyecto personal, de código abierto y sin fines de lucro. **NO ES OFICIAL** y no está afiliada, avalada ni patrocinada por la Municipalidad de Córdoba ni por ningún ente gubernamental. El material de estudio ("preguntero") utilizado es de dominio público, pero esta herramienta se provee "tal cual" (as is) exclusivamente para fines educativos personales. No se garantiza la exactitud absoluta de las preguntas respecto al examen real vigente. Se recomienda siempre consultar la [documentación oficial de la Municipalidad de Córdoba](https://www.cordoba.gob.ar).
+> **AVISO LEGAL:** Esta aplicación es un proyecto personal, de código abierto y sin fines de lucro. **NO ES OFICIAL** y no está afiliada, avalada ni patrocinada por la Municipalidad de Córdoba ni por ningún ente gubernamental. El material de estudio ("preguntero") utilizado es de dominio público, pero esta herramienta se provee "tal cual" (*as is*) exclusivamente para fines educativos personales. No se garantiza la exactitud absoluta de las preguntas respecto al examen real vigente. Se recomienda siempre consultar la [documentación oficial de la Municipalidad de Córdoba](https://www.cordoba.gob.ar).
 
-## Características
+## ✨ Características Principales
 
-- **100% Local y Offline:** No requiere conexión a internet, servidor ni base de datos.
-- **Modo Práctica Libre:** Responde preguntas de todo el banco de forma aleatoria con feedback inmediato.
-- **Modo Simulación:** Simula las condiciones del examen (30 preguntas, 90% para aprobar).
-- **Interfaz Simple:** Diseñada para ser fácil de leer y utilizar en cualquier dispositivo.
+*   🌍 **Acceso Online Inmediato:** Alojada en GitHub Pages. Estudia desde cualquier celular, tablet o PC sin instalar absolutamente nada.
+*   🔒 **Privacidad Total (100% Client-Side):** Todo se procesa en la memoria RAM de tu dispositivo. No hay bases de datos en la nube que recopilen tu información personal.
+*   🧠 **Modos de Estudio:**
+    *   **Práctica Libre:** Responde preguntas del banco de forma aleatoria con *feedback* visual inmediato y gráficos explicativos.
+    *   **Simulación de Examen:** Un entorno cronometrado y estructurado igual al real (30 preguntas, requiere 90% para aprobar).
+*   🎨 **Diseño Moderno (Glassmorphism):** Interfaz premium en Modo Oscuro, con animaciones fluidas y tipografía diseñada para evitar la fatiga visual durante largas sesiones de estudio.
+*   🤖 **CI/CD Automático:** Integración continua; el contenido se actualiza en vivo cada vez que se modifican los archivos fuente.
 
-## Cómo ejecutar
+---
 
-1. Descarga o clona este repositorio en tu computadora.
+## 🏗️ Arquitectura y Flujo de Trabajo
+
+El sistema está diseñado para ser extremadamente robusto y barato (costo cero) de mantener. Funciona dividiendo la capa de datos de la capa visual, lo que permite que el despliegue a la web sea instantáneo.
+
+```mermaid
+graph TD
+    %% Estilos
+    classDef usuario fill:#4f46e5,stroke:#312e81,stroke-width:2px,color:#fff
+    classDef git fill:#24292e,stroke:#000,stroke-width:2px,color:#fff
+    classDef datos fill:#f59e0b,stroke:#b45309,stroke-width:2px,color:#fff
+    classDef frontend fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff
+
+    %% Nodos
+    User((👨‍💻 Desarrollador)):::usuario
+    GH[GitHub Repository]:::git
+    Actions[🤖 GitHub Actions CI/CD]:::git
+    Pages((🌍 GitHub Pages)):::frontend
+    
+    subgraph Client-Side Browser App
+        JSON[(data/questions.json)]:::datos
+        Config[(data/config.json)]:::datos
+        Engine[js/engine.js \n Motor Lógico]:::frontend
+        UI[js/app.js & HTML/CSS \n Interfaz Visual]:::frontend
+    end
+
+    %% Relaciones de Despliegue
+    User -- "Sube cambios (git push)" --> GH
+    GH -- "Trigger automático" --> Actions
+    Actions -- "Despliega código estático" --> Pages
+    
+    %% Relaciones de la App
+    Pages -. "Descarga al celular del usuario" .-> UI
+    JSON --> Engine
+    Config --> Engine
+    Engine <--> UI
+```
+
+---
+
+## 🚀 Cómo usarla
+
+### Opción 1: Estudiante (Online) - *Recomendado*
+Simplemente ingresa desde el navegador de tu celular o computadora al siguiente enlace público y comienza a responder:
+👉 **[Acceder a la Aplicación Web](https://marquezjose.github.io/practica-carnet-conducir/)**
+
+### Opción 2: Desarrollador (Entorno Local)
+Si deseas modificar el código o agregar preguntas:
+1. Clona este repositorio en tu computadora: `git clone https://github.com/marquezjose/practica-carnet-conducir.git`
 2. Abre la carpeta del proyecto.
-3. Haz doble clic en el archivo `index.html` para abrirlo en tu navegador web predeterminado.
-4. ¡Listo para practicar!
+3. Inicia un servidor web local (por ejemplo, con Python):
+   ```bash
+   python3 -m http.server 8000
+   ```
+4. Abre `http://localhost:8000` en tu navegador web.
 
-## Cómo actualizar las preguntas
+---
 
-Las preguntas se encuentran estructuradas en el archivo `data/questions.json`.
-Si la normativa cambia o quieres agregar o modificar preguntas, simplemente edita ese archivo respetando el formato JSON:
+## 📝 Cómo actualizar el banco de preguntas
+
+La lógica del motor es independiente de las preguntas. Para agregar o modificar preguntas de la normativa, edita el archivo `data/questions.json` respetando esta estructura:
 
 ```json
 {
   "id": 1,
-  "question": "Texto de la pregunta...",
+  "question": "¿Quién tiene prioridad en una rotonda?",
   "options": [
-    "Opción 1",
-    "Opción 2",
-    "Opción 3"
+    "El que ingresa.",
+    "El que circula por la misma."
   ],
-  "correctAnswerIndex": 0
+  "correctAnswerIndex": 1,
+  "image": "data/img/q1.png" 
 }
 ```
-*Nota: `correctAnswerIndex` es el índice de la respuesta correcta dentro del arreglo `options` (empezando desde 0).*
+*Nota: El campo `image` es opcional si la pregunta no lleva ilustración gráfica. `correctAnswerIndex` es el índice de la respuesta correcta (empieza a contar desde el cero).*
 
-## Configuración del examen
-
-Los parámetros de la simulación de examen se pueden modificar en `data/config.json`:
-
-```json
-{
-  "simulation": {
-    "questionCount": 30,
-    "passingScore": 27,
-    "passingPercentage": 90
-  }
-}
-```
-
-## Arquitectura
-
-La aplicación sigue el principio de separación de responsabilidades:
-
-- `data/`: Contiene la información pura (Preguntas y Configuración).
-- `js/engine.js`: Maneja la lógica, puntuación y selección aleatoria sin conocer nada de la interfaz visual.
-- `js/app.js` y `css/styles.css`: Manejan la presentación y la interacción con el usuario en el navegador.
+Para alterar los requisitos de aprobación del simulacro, modifica los parámetros en `data/config.json`.
