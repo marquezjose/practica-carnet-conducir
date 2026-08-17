@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica Examen de Conducir</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-background"></div>
+    <div id="loading-overlay">
+        <div class="loader"></div>
+        <span>Cargando preguntas...</span>
+    </div>
+
+    <div class="container glass-effect">
+        <header>
+            <h1>Examen de Conducir</h1>
+            <div class="subtitle">Práctica de normativas de tránsito - Municipalidad de Córdoba</div>
+        </header>
+
+        <!-- Pantalla de Inicio -->
+        <main id="home-screen" class="hidden">
+            <button id="btn-practice" class="btn">Modo Práctica Libre</button>
+            <button id="btn-simulation" class="btn">Simulación de Examen</button>
+        </main>
+
+        <!-- Pantalla de Pregunta -->
+        <main id="question-screen" class="hidden">
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <div id="progress-text" class="progress-text">Pregunta 1 de 30</div>
+            
+            <div id="question-text" class="question-text">¿Pregunta?</div>
+            
+            <div id="question-image-container" class="hidden" style="text-align: center; margin-bottom: 20px;">
+                <img id="question-image" src="" alt="Imagen de la pregunta" style="max-width: 100%; border-radius: 12px; max-height: 250px;">
+            </div>
+            
+            <div id="options-container" class="options-container">
+                <!-- Opciones se inyectan acá por JS -->
+            </div>
+
+            <div id="feedback-container" class="hidden">
+                <button id="btn-next" class="btn btn-next">Siguiente Pregunta</button>
+            </div>
+        </main>
+
+        <!-- Pantalla de Resultado -->
+        <main id="result-screen" class="hidden">
+            <h2 id="result-title" class="result-title">Resultado</h2>
+            <div id="score-display" class="score-display">0%</div>
+            <div id="score-details" class="score-details">
+                Aciertos: <span id="result-correct">0</span> | Errores: <span id="result-incorrect">0</span>
+            </div>
+            <button id="btn-restart" class="btn">Volver al Inicio</button>
+        </main>
+    </div>
+
+    <script src="js/engine.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
